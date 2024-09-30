@@ -1,6 +1,6 @@
 {
   "name": "osrm-isochrone-server",
-  "version": "5.12.1",
+  "version": "5.12.2",
   "description": "osrm-isochrone API web server",
   "main": "server.js",
   "dependencies": {
