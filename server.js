@@ -25,7 +25,7 @@ var argv = require('minimist')(process.argv.slice(2));
 var hull = require('hull.js');
 var buffer = require('turf-buffer');
 
-console.log('Usage [--osrm file.osrm] [--port 1723]');
+console.log('Usage [--osrm file.osrm] [--port 1723] [--algorithm CH|MLD]');
 var osrm_file = argv['osrm']; // prebuild dc osrm network file
 console.log(osrm_file ? 'Booting with file.osrm provided' : 'No file.osrm provided, using shared-memory');
 
@@ -35,7 +35,8 @@ if ('port' in argv) {
 }
 
 var maxMatrixSize = config.get('maxMatrixSize');
-var osrm = osrm_file ? new OSRM(osrm_file) : new OSRM({shared_memory: true, distance_table: maxMatrixSize});
+var algorithm = argv['algorithm'] || 'CH';
+var osrm = osrm_file ? new OSRM(osrm_file) : new OSRM({shared_memory: true, distance_table: maxMatrixSize, algorithm: algorithm});
 
 var server = http.createServer(function(req, res) {
   var page = url.parse(req.url).pathname;
