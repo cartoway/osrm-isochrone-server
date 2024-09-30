@@ -36,7 +36,9 @@ if ('port' in argv) {
 
 var maxMatrixSize = config.get('maxMatrixSize');
 var algorithm = argv['algorithm'] || 'CH';
+console.log({shared_memory: true, distance_table: maxMatrixSize, algorithm: algorithm});
 var osrm = osrm_file ? new OSRM(osrm_file) : new OSRM({shared_memory: true, distance_table: maxMatrixSize, algorithm: algorithm});
+console.log(osrm);
 
 var server = http.createServer(function(req, res) {
   var page = url.parse(req.url).pathname;
