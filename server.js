@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 // Copyright © Mapotempo, 2014-2015
 //
 // This file is part of Mapotempo.
@@ -19,7 +21,7 @@ var http = require('http');
 var url = require('url');
 var querystring = require('querystring');
 var config = require('config');
-var OSRM = require('osrm');
+var OSRM = require('@project-osrm/osrm');
 var isochrone = require('osrm-isochrone');
 var argv = require('minimist')(process.argv.slice(2));
 var hull = require('hull.js');
