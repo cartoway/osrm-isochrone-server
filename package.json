@@ -13,7 +13,7 @@
     "config": "^1.16.0"
   },
   "peerDependencies": {
-    "@project-osrm/osrm": "^6.0.0"
+    "@project-osrm/osrm": "^26.6.0"
   },
   "devDependencies": {
     "minimist": "^1.1.2"
